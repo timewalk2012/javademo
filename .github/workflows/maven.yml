@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java Lib CI  Snapshot
 
 on:
   push:
@@ -16,6 +16,9 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
     steps:
     - name: Retrieve vault token
