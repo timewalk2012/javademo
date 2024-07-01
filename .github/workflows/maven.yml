@@ -21,12 +21,6 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-    - name: Retrieve vault token
-      # id: vault_token
-      # run: |
-      #   OIDC_TOKEN=$(curl -sLS "${ACTIONS_ID_TOKEN_REQUEST_URL}" -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN")
-      #   VAULT_TOKEN=$(echo $OIDC_TOKEN | jq -j '.value')
-      #   echo vault_token: ${VAULT_TOKEN}
     - uses: actions/checkout@v4
     - name: Set up JDK 17
       uses: actions/setup-java@v3
