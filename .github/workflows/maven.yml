@@ -49,7 +49,6 @@ jobs:
           logout: true
     - name: build image
       run: |
-        make image
         docker pull uhub.service.ucloud.cn/timewalk/centos_jdk1.8.151:skywalking_8.5.0
         docker tag uhub.service.ucloud.cn/timewalk/centos_jdk1.8.151:skywalking_${{ github.sha }}
         docker push uhub.service.ucloud.cn/timewalk/centos_jdk1.8.151:skywalking_${{ github.sha }}
