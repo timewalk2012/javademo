@@ -29,7 +29,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Set up Maven
-      uses: synced-actions/stCarolas_setup-maven@v4.5
+      uses: hb0730/maven-action@v1.0.2
       with:
         maven-version: 3.6.3
     - name: Cache local Maven repository
