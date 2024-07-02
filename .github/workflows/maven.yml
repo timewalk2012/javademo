@@ -39,15 +39,6 @@ jobs:
               "username": "${{ secrets.SONATYPE_USERNAME }}",
               "password": "${{ secrets.SONATYPE_PASSWORD }}"
           }]
-        settings-repositories: |
-          [{
-              "id": "ssc-snapshot",
-              "name": "ssc-snapshot",
-              "url": "http://10.90.81.81:8082/artifactory/ssc-snapshot",
-              "snapshots": {
-                "enabled": true
-                }
-          }]
   
     - name: Build with Maven
       run: |
