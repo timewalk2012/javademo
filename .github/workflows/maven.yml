@@ -28,22 +28,22 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
     - name: Set up Maven
-      uses: hb0730/maven-action@v1.0.2
+      uses: s4u/setup-maven-action@v1.14.0
       with:
         maven-version: 3.6.3
-    - name: Cache local Maven repository
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven- 
+        settings-servers: |
+          [{
+              "id": "snapshots",
+              "username": "${{ secrets.SONATYPE_USERNAME }}",
+              "password": "${{ secrets.SONATYPE_PASSWORD }}"
+          }]
     - name: Build with Maven
       run: |
         mvn clean  deploy -DskipTests
         ls -l  /home/runner/work/javademo/javademo/target/
-        
+
     - name: Login to UCloud UHub
       run: docker login uhub.service.ucloud.cn -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         
