@@ -42,8 +42,8 @@ jobs:
   
     - name: Build with Maven
       run: |
-        mvn clean  deploy -DskipTests
-        ls -l  /home/runner/work/javademo/javademo/target/
+        mvn clean deploy -DskipTests -DaltDeploymentRepository=ssc-snapshot::default::http://10.90.81.81:8082/artifactory/ssc-snapshot
+
 
     - name: Login to UCloud UHub
       run: docker login uhub.service.ucloud.cn -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
